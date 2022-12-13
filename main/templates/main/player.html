@@ -1,0 +1,28 @@
+{% extends 'main/base.html' %}
+{% block content %}
+
+<h1>{{ player.name }}</h1>
+<h5>{{ player.school }}, {{ player.prospect.position }}</h5>
+<h1>Grade: {{player.grade}}</h1>
+
+<table class="table table-dark table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Trait</th>
+        <th scope="col">Grade</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for grade in player_fields %}
+      <tr>
+        <td scope="row">{{ grade.0 }}</td>
+        <td colspan="2">{{ grade.1 }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+
+<h3>Write up:</h3>
+<p>{{ player.prospect.description }}</p>
+
+{% endblock %}

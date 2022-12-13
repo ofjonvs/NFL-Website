@@ -1,0 +1,61 @@
+{% extends 'main/base.html' %}
+{% block content %}
+{% load static %}
+
+
+<table class="table table-striped table-dark table-hover">
+    <style>
+        a:link {
+          color: white;
+          background-color: transparent;
+          text-decoration: none;
+        }
+        
+        a:visited {
+          color: white;
+          background-color: transparent;
+          text-decoration: none;
+        }
+        
+        a:hover {
+          color: pink;
+          background-color: transparent;
+          text-decoration: underline;
+        }
+        
+        a:active {
+          color: white;
+          background-color: transparent;
+          text-decoration: underline;
+        }
+        </style>
+    <thead>
+      <tr>
+        <th scope="col">Rank</th>
+        <th scope="col">Player</th>
+        <th scope="col">School</th>
+        <th scope="col">Grade</th>
+      </tr>
+    </thead>
+    <tbody>
+    <script>
+    var i = 0
+    </script>
+    {% for player in players %}
+      <tr>
+      <th scope="row"><script>
+        i += 1 
+        document.write(i)
+    </script></th>
+      <td> <a href="{% url 'player' pos player.prospect.name_link player.prospect.school_link player.prospect.id %}"> {{ player.name }}</a></td>
+      <td> {{ player.school }} </td>
+      <td> {{ player.grade }} </td>
+      </tr>
+    {% endfor %}
+
+    </tbody>
+  </table>
+
+
+
+{% endblock %}
